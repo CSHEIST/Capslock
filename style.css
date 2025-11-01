@@ -118,25 +118,3 @@ body {
     font-size: 2.5rem;
   }
 }
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: left; /* or center/right */
-  align-items: center;
-  gap: 20px; /* space between links */
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #00ffff;
-  font-weight: bold;
-  font-size: 18px;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #00b3b3;
-}
-
