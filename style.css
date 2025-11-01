@@ -1,189 +1,120 @@
-/* General reset */
-* {
-  box-sizing: border-box;
+/* Import a nice cursive font for the logo */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* ===== GENERAL ===== */
+body {
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  color: #fff;
-  background-color: #0a0a0a;
-  overflow-x: hidden;
-}
-
-/* ===== HEADER SECTION ===== */
-header {
+/* ===== NAVBAR ===== */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
   padding: 20px 60px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background: transparent;
+  flex-wrap: wrap;
 }
 
+/* Logo style */
 .logo {
   font-family: 'Pacifico', cursive;
-  font-size: 2.0rem;
+  font-size: 2.5rem;
   color: #00e0ff;
+  letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(0, 224, 255, 0.5);
 }
 
-
-nav ul {
+/* Navigation links */
+.nav-links {
   display: flex;
-  gap: 30px;
-  list-style: none;
+  gap: 25px;
 }
 
-nav ul li a {
+.nav-links a {
   text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
   color: #00e0ff;
-  font-weight: 600;
-  transition: color 0.3s;
+  text-shadow: 0 0 5px rgba(0, 224, 255, 0.5);
 }
 
-nav ul li a:hover {
-  color: #00ffa1;
-}
-
-/* ===== HOME SECTION ===== */
-.home {
+/* ===== MAIN QUOTE ===== */
+.hero {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85vh;
-  text-align: center;
+  height: 80vh;
   overflow: hidden;
+  text-align: center;
 }
 
 .main-quote {
-  font-size: 80px;
-  font-weight: 800;
-  line-height: 1.2;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #00e0ff, #00ffa1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: 'Comic Neue', cursive;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #00e0ff;
+  text-shadow: 0 0 20px rgba(0, 224, 255, 0.6);
   opacity: 0;
-  transform: translateX(-100%);
-  animation: slideAcross 12s infinite;
+  animation: moveText 8s linear infinite;
 }
 
-/* Slide animation */
-@keyframes slideAcross {
+@keyframes moveText {
   0% {
-    opacity: 0;
     transform: translateX(-100%);
-  }
-  20% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  80% {
     opacity: 0;
-    transform: translateX(100%);
+  }
+  25% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(0%);
+    opacity: 1;
   }
   100% {
-    opacity: 0;
     transform: translateX(100%);
+    opacity: 0;
   }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Tablets */
-@media (max-width: 992px) {
-  header {
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  .navbar {
     flex-direction: column;
     align-items: flex-start;
     padding: 15px 30px;
   }
 
-  nav ul {
-    flex-wrap: wrap;
-    gap: 20px;
+  .nav-links {
+    display: flex;
+    flex-wrap: nowrap; /* keep items in one line */
+    overflow-x: auto; /* allow horizontal scroll */
+    width: 100%;
+    padding-bottom: 5px;
+  }
+
+  .nav-links a {
+    white-space: nowrap; /* prevent wrapping */
+    padding-right: 20px;
+  }
+
+  /* Hide scroll bar for cleaner look */
+  .nav-links::-webkit-scrollbar {
+    display: none;
   }
 
   .main-quote {
-    font-size: 60px;
+    font-size: 2.5rem;
   }
 }
-
-/* Mobiles */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
-  }
-
-  .logo {
-    font-size: 1.7rem;
-  }
-
-  .main-quote {
-    font-size: 35px;
-  }
-}
-
-.about {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  color: #00ffa1;
-  margin-bottom: 40px;
-}
-
-.founder {
-  text-align: center;
-}
-
-.founder-name {
-  font-size: 1.8rem;
-  color: #00e0ff;
-}
-
-.founder-role {
-  font-size: 1.2rem;
-  color: #aaa;
-  margin-bottom: 15px;
-}
-
-.founder-photo {
-  width: 5cm;
-  height: 5cm;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-top: 25px;
-  border: 3px solid #00e0ff;
-  box-shadow: 0 0 15px rgba(0, 224, 255, 0.5);
-}
-
-/* RESPONSIVE FIXES */
-@media (max-width: 600px) {
-  .founder-photo {
-    width: 3.5cm;
-    height: 3.5cm;
-  }
-
-  .page-title {
-    font-size: 2rem;
-  }
-}
-
