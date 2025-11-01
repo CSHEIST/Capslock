@@ -25,10 +25,10 @@ header {
 }
 
 .logo {
+  font-family: 'Pacifico', cursive;
   font-size: 2rem;
   color: #00e0ff;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px rgba(0, 224, 255, 0.5);
 }
 
 nav ul {
@@ -186,3 +186,4 @@ nav ul li a:hover {
     font-size: 2rem;
   }
 }
+
