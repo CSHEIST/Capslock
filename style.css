@@ -189,3 +189,23 @@ nav ul li a:hover {
     font-size: 2rem;
   }
 }
+.typing-text {
+  color: #00ffff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 180px;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ffff;
+  width: 15ch;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #00ffff; }
+}
+
+
